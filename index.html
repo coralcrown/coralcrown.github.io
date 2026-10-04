@@ -496,6 +496,140 @@ footer strong{
     object-fit:contain;
     display:block;
     }
+/* Ferry Enquiry Form */
+
+.ferry-modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    padding:20px;
+    overflow-y:auto;
+}
+
+.ferry-box{
+    position:relative;
+    max-width:650px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.ferry-box h2{
+    margin:0 0 8px;
+    color:#073b5c;
+    font-size:28px;
+}
+
+.ferry-subtitle{
+    margin:0 0 25px;
+    color:#666;
+}
+
+.close-ferry{
+    position:absolute;
+    right:18px;
+    top:15px;
+    border:none;
+    background:none;
+    font-size:32px;
+    cursor:pointer;
+    color:#555;
+}
+
+.ferry-box label{
+    display:block;
+    margin:15px 0 7px;
+    font-weight:600;
+    color:#173f52;
+}
+
+.ferry-box input,
+.ferry-box select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #d5e1e5;
+    border-radius:10px;
+    font-size:14px;
+    outline:none;
+    box-sizing:border-box;
+    background:#fff;
+}
+
+.ferry-box input:focus,
+.ferry-box select:focus{
+    border-color:#1596a8;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.passenger-card{
+    margin-top:20px;
+    padding:18px;
+    border-radius:14px;
+    background:#f5fafb;
+    border:1px solid #dcecef;
+}
+
+.passenger-card h4{
+    margin:0 0 12px;
+    color:#073b5c;
+}
+
+.passenger-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:12px;
+}
+
+.ferry-submit{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#073b5c;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.ferry-submit:hover{
+    opacity:0.9;
+}
+
+.service-link{
+    display:inline-block;
+    margin-top:12px;
+    color:#0b8291;
+    font-weight:700;
+}
+
+@media(max-width:600px){
+
+    .ferry-box{
+        padding:22px;
+        margin:20px auto;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .passenger-grid{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+}
 </style>
 </head>
 
@@ -806,6 +940,202 @@ href="https://wa.me/917695058610?text=Hello%20Coral%20Crown%20Travels,%20I%20wan
 target="_blank">
 ☎
 </a>
+<!-- Ferry Enquiry Modal -->
+<div id="ferryModal" class="ferry-modal">
+    <div class="ferry-box">
 
+        <button class="close-ferry" onclick="closeFerryForm()">×</button>
+
+        <h2>Ferry Enquiry</h2>
+        <p class="ferry-subtitle">
+            Check fare and availability for your Andaman ferry journey.
+        </p>
+
+        <form id="ferryForm">
+
+            <label>Ferry</label>
+            <select id="ferryName" required>
+                <option value="">Select Ferry</option>
+                <option>Makruzz</option>
+                <option>Nautika</option>
+                <option>Green Ocean</option>
+            </select>
+
+            <div class="form-row">
+                <div>
+                    <label>From</label>
+                    <select id="ferryFrom" required>
+                        <option value="">Select</option>
+                        <option>Port Blair</option>
+                        <option>Havelock</option>
+                        <option>Neil Island</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>To</label>
+                    <select id="ferryTo" required>
+                        <option value="">Select</option>
+                        <option>Port Blair</option>
+                        <option>Havelock</option>
+                        <option>Neil Island</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>Travel Date</label>
+            <input type="date" id="ferryDate" required>
+
+            <label>Number of Passengers</label>
+            <select id="passengerCount" required onchange="createPassengerFields()">
+                <option value="">Select</option>
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+                <option value="7">7 Passengers</option>
+                <option value="8">8 Passengers</option>
+                <option value="9">9 Passengers</option>
+                <option value="10">10 Passengers</option>
+            </select>
+
+            <div id="passengerFields"></div>
+
+            <label>Contact Number</label>
+            <input type="tel" id="customerPhone"
+                   placeholder="Enter contact number" required>
+
+            <label>Email <span>(Optional)</span></label>
+            <input type="email" id="customerEmail"
+                   placeholder="Enter email address">
+
+            <button type="submit" class="ferry-submit">
+                Check Fare / Send Enquiry
+            </button>
+
+        </form>
+    </div>
+    </div>
+    <script>
+function openFerryForm(){
+    document.getElementById("ferryModal").style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function closeFerryForm(){
+    document.getElementById("ferryModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+window.onclick = function(event){
+    const modal = document.getElementById("ferryModal");
+
+    if(event.target === modal){
+        closeFerryForm();
+    }
+};
+
+function createPassengerFields(){
+
+    const count = document.getElementById("passengerCount").value;
+    const container = document.getElementById("passengerFields");
+
+    container.innerHTML = "";
+
+    for(let i = 1; i <= count; i++){
+
+        container.innerHTML += `
+            <div class="passenger-card">
+
+                <h4>Passenger ${i}</h4>
+
+                <div class="passenger-grid">
+
+                    <div>
+                        <label>Name</label>
+                        <input type="text"
+                               id="passengerName${i}"
+                               placeholder="Full Name"
+                               required>
+                    </div>
+
+                    <div>
+                        <label>Gender</label>
+                        <select id="passengerGender${i}" required>
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Age</label>
+                        <input type="number"
+                               id="passengerAge${i}"
+                               placeholder="Age"
+                               min="1"
+                               max="120"
+                               required>
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+    }
+}
+
+document.getElementById("ferryForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const ferry = document.getElementById("ferryName").value;
+    const from = document.getElementById("ferryFrom").value;
+    const to = document.getElementById("ferryTo").value;
+    const date = document.getElementById("ferryDate").value;
+    const count = document.getElementById("passengerCount").value;
+    const phone = document.getElementById("customerPhone").value;
+    const email = document.getElementById("customerEmail").value;
+
+    let message = "Hello Coral Crown Travels,%0A%0A";
+    message += "*Ferry Fare & Availability Enquiry*%0A%0A";
+
+    message += "Ferry: " + ferry + "%0A";
+    message += "From: " + from + "%0A";
+    message += "To: " + to + "%0A";
+    message += "Travel Date: " + date + "%0A";
+    message += "Passengers: " + count + "%0A%0A";
+
+    message += "*Passenger Details*%0A";
+
+    for(let i = 1; i <= count; i++){
+
+        const name = document.getElementById("passengerName" + i).value;
+        const gender = document.getElementById("passengerGender" + i).value;
+        const age = document.getElementById("passengerAge" + i).value;
+
+        message += "%0APassenger " + i + "%0A";
+        message += "Name: " + name + "%0A";
+        message += "Gender: " + gender + "%0A";
+        message += "Age: " + age + "%0A";
+    }
+
+    message += "%0A*Contact Details*%0A";
+    message += "Phone: " + phone + "%0A";
+
+    if(email){
+        message += "Email: " + email + "%0A";
+    }
+
+    const whatsappURL =
+        "https://wa.me/917695058610?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+
+});
+        </script>
 </body>
     </html>
