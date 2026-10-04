@@ -1566,7 +1566,10 @@ document.getElementById("cabDestination").addEventListener("change", function(){
 
         cabLocations[destination].forEach(function(location){
 
-    if(location === "Hotels & Resorts" || location === "Hotels & Stays"){
+    if(
+        location === "Hotels & Resorts" ||
+        location === "Hotels & Stays"
+    ){
 
         pickup.innerHTML +=
             '<option disabled>── ' + location + ' ──</option>';
