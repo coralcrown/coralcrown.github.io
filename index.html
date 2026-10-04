@@ -233,7 +233,22 @@ section{
 .img3{
     background-image:url("https://images.unsplash.com/photo-1476673160081-cf065607f449?auto=format&fit=crop&w=900&q=80");
 }
+.package-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:18px 0;
+}
 
+.package-details span{
+    font-size:12px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#f1f7f8;
+    color:#176b72;
+    font-weight:600;
+    }
+    
 .package-content{
     padding:22px;
 }
@@ -430,7 +445,10 @@ footer strong{
 }
 
 @media(max-width:600px){
-
+    .package-details{
+        justify-content:center;
+    }
+    
     .hero{
         min-height:600px;
     }
