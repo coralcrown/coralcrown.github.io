@@ -1404,6 +1404,234 @@ document.getElementById("ferryForm").addEventListener("submit", function(event){
     </div>
 
 </div> 
+    <script>
+
+function openCabForm(){
+    document.getElementById("cabModal").style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function closeCabForm(){
+    document.getElementById("cabModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+
+/* Cab Locations */
+
+const cabLocations = {
+
+    "Port Blair": [
+        "Veer Savarkar International Airport",
+        "Flag Point",
+        "Cellular Jail",
+        "Cellular Jail - Light & Sound Show",
+        "Marina Park",
+        "Rajiv Gandhi Water Sports Complex",
+        "Aberdeen Bazaar",
+        "Phoenix Bay",
+        "Haddo",
+        "Junglighat",
+        "Goalghar",
+        "Delanipur",
+        "Shadipur",
+        "Dairy Farm",
+        "Garacharma",
+        "Dollygunj",
+        "Bathubasti",
+        "Prothrapur",
+        "Corbyn's Cove Beach",
+        "Chidiya Tapu",
+        "Wandoor",
+        "Chatham Saw Mill",
+        "Ross Island Jetty",
+        "North Bay Jetty",
+        "Viper Island Jetty",
+        "Mount Manipur"
+    ],
+
+    "Havelock / Swaraj Dweep": [
+        "Swaraj Dweep Jetty",
+        "Govind Nagar",
+        "Vijay Nagar",
+        "Radhanagar",
+        "Kalapathar",
+        "Radhanagar Beach",
+        "Kalapathar Beach",
+        "Govind Nagar Beach",
+        "Vijay Nagar Beach",
+        "Elephant Beach - Boat Point"
+    ],
+
+    "Neil / Shaheed Dweep": [
+        "Shaheed Dweep Jetty",
+        "Neil Kendra",
+        "Bharatpur",
+        "Laxmanpur",
+        "Sitapur",
+        "Ram Nagar",
+        "Bharatpur Beach",
+        "Laxmanpur Beach",
+        "Natural Bridge",
+        "Sitapur Beach"
+    ],
+
+    "Baratang": [
+        "Baratang Jetty",
+        "Nilambur Jetty",
+        "Middle Strait",
+        "Baratang Market",
+        "Baratang Island",
+        "Limestone Cave",
+        "Mangrove Creek",
+        "Mud Volcano",
+        "Parrot Island"
+    ],
+
+    "Diglipur": [
+        "Diglipur Market",
+        "Diglipur Town",
+        "Aerial Bay",
+        "Aerial Bay Jetty",
+        "Kalipur",
+        "Kalipur Beach",
+        "Saddle Peak",
+        "Lamiya Bay Beach",
+        "Alfred Caves",
+        "Shyam Nagar",
+        "Kalpong River"
+    ]
+
+};
+
+
+/* Load Locations */
+
+document.getElementById("cabDestination").addEventListener("change", function(){
+
+    const destination = this.value;
+
+    const pickup = document.getElementById("cabPickup");
+    const drop = document.getElementById("cabDrop");
+
+    pickup.innerHTML = '<option value="">Select Pickup Location</option>';
+    drop.innerHTML = '<option value="">Select Drop / Sightseeing Location</option>';
+
+    if(destination && cabLocations[destination]){
+
+        cabLocations[destination].forEach(function(location){
+
+            pickup.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
+
+            drop.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
+
+        });
+
+    }
+
+});
+
+
+/* Close modal when clicking outside */
+
+document.addEventListener("click", function(event){
+
+    const modal = document.getElementById("cabModal");
+
+    if(event.target === modal){
+        closeCabForm();
+    }
+
+});
+
+
+/* Cab Enquiry */
+
+document.getElementById("cabForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const destination =
+        document.getElementById("cabDestination").value;
+
+    const pickup =
+        document.getElementById("cabPickup").value;
+
+    const drop =
+        document.getElementById("cabDrop").value;
+
+    const date =
+        document.getElementById("cabDate").value;
+
+    const time =
+        document.getElementById("cabTime").value;
+
+    const passengers =
+        document.getElementById("cabPassengers").value;
+
+    const cabType =
+        document.getElementById("cabType").value;
+
+    const customerName =
+        document.getElementById("cabCustomerName").value;
+
+    const phone =
+        document.getElementById("cabPhone").value;
+
+    const email =
+        document.getElementById("cabEmail").value;
+
+    const requirement =
+        document.getElementById("cabRequirement").value;
+
+
+    let message = "";
+
+    message += "Hello Coral Crown Travels,\n\n";
+
+    message += "CAB BOOKING / FARE ENQUIRY\n\n";
+
+    message += "Destination: " + destination + "\n";
+    message += "Pickup: " + pickup + "\n";
+    message += "Drop / Sightseeing: " + drop + "\n";
+    message += "Travel Date: " + date + "\n";
+    message += "Pickup Time: " + time + "\n";
+    message += "Passengers: " + passengers + "\n";
+    message += "Cab Type: " + cabType + "\n\n";
+
+    message += "CUSTOMER DETAILS\n";
+
+    message += "Name: " + customerName + "\n";
+    message += "Phone: " + phone + "\n";
+
+    if(email !== ""){
+        message += "Email: " + email + "\n";
+    }
+
+    if(requirement !== ""){
+        message += "\nSpecial Requirement:\n";
+        message += requirement + "\n";
+    }
+
+    message += "\nPlease share the available cab and current fare.";
+
+
+    const whatsappURL =
+        "https://wa.me/917695058610?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(whatsappURL, "_blank");
+
+});
+
+        </script>
     
 </body>
     </html>
