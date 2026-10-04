@@ -1159,5 +1159,150 @@ document.getElementById("ferryForm").addEventListener("submit", function(event){
 
 </script>
     
+<!-- Cab Enquiry Modal -->
+<div id="cabModal" class="cab-modal">
+
+    <div class="cab-box">
+
+        <button class="close-cab" onclick="closeCabForm()">×</button>
+
+        <h2>Cab Enquiry</h2>
+
+        <p class="cab-subtitle">
+            Book a cab for airport transfers, hotel transfers and sightseeing.
+        </p>
+
+        <form id="cabForm">
+
+            <label>Destination</label>
+
+            <select id="cabDestination" required>
+                <option value="">Select Destination</option>
+                <option value="Port Blair">Port Blair</option>
+                <option value="Havelock / Swaraj Dweep">Havelock / Swaraj Dweep</option>
+                <option value="Neil / Shaheed Dweep">Neil / Shaheed Dweep</option>
+                <option value="Baratang">Baratang</option>
+                <option value="Diglipur">Diglipur</option>
+            </select>
+
+
+            <label>Pickup Location</label>
+
+            <select id="cabPickup" required>
+                <option value="">Select Destination First</option>
+            </select>
+
+
+            <label>Drop / Sightseeing Location</label>
+
+            <select id="cabDrop" required>
+                <option value="">Select Destination First</option>
+            </select>
+
+
+            <label>Travel Date</label>
+
+            <input
+                type="date"
+                id="cabDate"
+                required
+            >
+
+
+            <label>Pickup Time</label>
+
+            <input
+                type="time"
+                id="cabTime"
+                required
+            >
+
+
+            <label>Number of Passengers</label>
+
+            <select id="cabPassengers" required>
+
+                <option value="">Select</option>
+
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+                <option value="7">7 Passengers</option>
+                <option value="8">8 Passengers</option>
+                <option value="9">9 Passengers</option>
+                <option value="10">10 Passengers</option>
+
+            </select>
+
+
+            <label>Cab Type</label>
+
+            <select id="cabType" required>
+
+                <option value="">Select Cab Type</option>
+
+                <option>Hatchback</option>
+                <option>Sedan</option>
+                <option>SUV</option>
+                <option>Innova</option>
+                <option>Ertiga</option>
+                <option>Xylo</option>
+                <option>XUV</option>
+                <option>Tempo Traveller</option>
+
+            </select>
+
+
+            <label>Customer Name</label>
+
+            <input
+                type="text"
+                id="cabCustomerName"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+            <label>Contact Number</label>
+
+            <input
+                type="tel"
+                id="cabPhone"
+                placeholder="Enter contact number"
+                required
+            >
+
+
+            <label>Email <span>(Optional)</span></label>
+
+            <input
+                type="email"
+                id="cabEmail"
+                placeholder="Enter email address"
+            >
+
+
+            <label>Special Requirement <span>(Optional)</span></label>
+
+            <textarea
+                id="cabRequirement"
+                placeholder="Any special requirement..."
+                rows="3"
+            ></textarea>
+
+
+            <button type="submit" class="cab-submit">
+                Send Cab Enquiry
+            </button>
+
+        </form>
+
+    </div>
+
+</div> 
+    
 </body>
     </html>
