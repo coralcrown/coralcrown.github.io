@@ -1564,34 +1564,37 @@ document.getElementById("cabDestination").addEventListener("change", function(){
 
     if(destination && cabLocations[destination]){
 
-        cabLocations[destination].forEach(function(location){
 
-    if(
-        location === "Hotels & Resorts" ||
-        location === "Hotels & Stays"
-    ){
+    cabLocations[destination].forEach(function(location){
 
-        pickup.innerHTML +=
-            '<option disabled>── ' + location + ' ──</option>';
+        if(
+            location === "Hotels & Resorts" ||
+            location === "Hotels & Stays"
+        ){
 
-        drop.innerHTML +=
-            '<option disabled>── ' + location + ' ──</option>';
+            pickup.innerHTML +=
+                '<option disabled>── ' + location + ' ──</option>';
 
-    } else {
+            drop.innerHTML +=
+                '<option disabled>── ' + location + ' ──</option>';
 
-        pickup.innerHTML +=
-            '<option value="' + location + '">' +
-            location +
-            '</option>';
+        } else {
 
-        drop.innerHTML +=
-            '<option value="' + location + '">' +
-            location +
-            '</option>';
+            pickup.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
 
-    }
+            drop.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
 
-});
+        }
+
+    });
+
+}
 
 
 /* Close modal when clicking outside */
