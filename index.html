@@ -1404,20 +1404,120 @@ document.getElementById("ferryForm").addEventListener("submit", function(event){
     </div>
 
 </div> 
-    <script>
+
+        "Baratang Market",
+        "Baratang Island",
+        "Limestone Cave",
+        "Mangrove Creek",
+        "Mud Volcano",
+        "Parrot Island"
+
+    ],
+
+
+    "Diglipur": [
+
+        "Diglipur Market",
+        "Diglipur Town",
+        "Aerial Bay",
+        "Aerial Bay Jetty",
+
+        "Hotels & Stays",
+
+        "Kalipur",
+        "Kalipur Beach",
+        "Saddle Peak",
+        "Lamiya Bay Beach",
+        "Alfred Caves",
+        "Shyam Nagar",
+        "Kalpong River"
+
+    ]
+
+};
+        
+/* Load Locations */
+
+document.getElementById("cabDestination").addEventListener("change", function(){
+
+    const destination = this.value;
+
+    const pickup = document.getElementById("cabPickup");
+    const drop = document.getElementById("cabDrop");
+
+    pickup.innerHTML = '<option value="">Select Pickup Location</option>';
+    drop.innerHTML = '<option value="">Select Drop / Sightseeing Location</option>';
+
+    if(destination && cabLocations[destination]){
+
+
+    cabLocations[destination].forEach(function(location){
+
+        if(
+            location === "Hotels & Resorts" ||
+            location === "Hotels & Stays"
+        ){
+
+            pickup.innerHTML +=
+                '<option disabled>── ' + location + ' ──</option>';
+
+            drop.innerHTML +=
+                '<option disabled>── ' + location + ' ──</option>';
+
+        } else {
+
+            pickup.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
+
+            drop.innerHTML +=
+                '<option value="' + location + '">' +
+                location +
+                '</option>';
+
+        }
+
+    });
+
+}
+
+
+/* Close modal when clicking outside */
+
+document.addEventListener("click", function(event){
+
+    const modal = document.getElementById("cabModal");
+
+    if(event.target === modal){
+        closeCabForm();
+<script>
+
+/* =========================
+   CAB FORM OPEN / CLOSE
+========================= */
 
 function openCabForm(){
+
     document.getElementById("cabModal").style.display = "block";
+
     document.body.style.overflow = "hidden";
+
 }
+
 
 function closeCabForm(){
+
     document.getElementById("cabModal").style.display = "none";
+
     document.body.style.overflow = "auto";
+
 }
 
 
-/* Cab Locations */
+/* =========================
+   CAB LOCATIONS
+========================= */
 
 const cabLocations = {
 
@@ -1427,8 +1527,8 @@ const cabLocations = {
 
         "Hotels & Resorts",
         "SeaShell Coral Cove",
-        "Welcomhotel by ITC Hotels",
         "SeaShell Port Blair",
+        "Welcomhotel by ITC Hotels",
         "Hotel Sand Heaven",
 
         "Flag Point",
@@ -1549,148 +1649,246 @@ const cabLocations = {
     ]
 
 };
-        
-/* Load Locations */
-
-document.getElementById("cabDestination").addEventListener("change", function(){
-
-    const destination = this.value;
-
-    const pickup = document.getElementById("cabPickup");
-    const drop = document.getElementById("cabDrop");
-
-    pickup.innerHTML = '<option value="">Select Pickup Location</option>';
-    drop.innerHTML = '<option value="">Select Drop / Sightseeing Location</option>';
-
-    if(destination && cabLocations[destination]){
 
 
-    cabLocations[destination].forEach(function(location){
+/* =========================
+   LOAD PICKUP / DROP LOCATIONS
+========================= */
 
-        if(
-            location === "Hotels & Resorts" ||
-            location === "Hotels & Stays"
-        ){
+document.getElementById("cabDestination").addEventListener(
+    "change",
+    function(){
 
-            pickup.innerHTML +=
-                '<option disabled>── ' + location + ' ──</option>';
+        const destination = this.value;
 
-            drop.innerHTML +=
-                '<option disabled>── ' + location + ' ──</option>';
+        const pickup =
+            document.getElementById("cabPickup");
 
-        } else {
+        const drop =
+            document.getElementById("cabDrop");
 
-            pickup.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
 
-            drop.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
+        pickup.innerHTML =
+            '<option value="">Select Pickup Location</option>';
+
+        drop.innerHTML =
+            '<option value="">Select Drop / Sightseeing Location</option>';
+
+
+        if(destination && cabLocations[destination]){
+
+            cabLocations[destination].forEach(
+                function(location){
+
+                    if(
+                        location === "Hotels & Resorts" ||
+                        location === "Hotels & Stays"
+                    ){
+
+                        pickup.innerHTML +=
+                            '<option disabled>── ' +
+                            location +
+                            ' ──</option>';
+
+                        drop.innerHTML +=
+                            '<option disabled>── ' +
+                            location +
+                            ' ──</option>';
+
+                    }else{
+
+                        pickup.innerHTML +=
+                            '<option value="' +
+                            location +
+                            '">' +
+                            location +
+                            '</option>';
+
+                        drop.innerHTML +=
+                            '<option value="' +
+                            location +
+                            '">' +
+                            location +
+                            '</option>';
+
+                    }
+
+                }
+            );
 
         }
 
-    });
-
-}
-
-
-/* Close modal when clicking outside */
-
-document.addEventListener("click", function(event){
-
-    const modal = document.getElementById("cabModal");
-
-    if(event.target === modal){
-        closeCabForm();
     }
-
-});
-
-
-/* Cab Enquiry */
-
-document.getElementById("cabForm").addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-    const destination =
-        document.getElementById("cabDestination").value;
-
-    const pickup =
-        document.getElementById("cabPickup").value;
-
-    const drop =
-        document.getElementById("cabDrop").value;
-
-    const date =
-        document.getElementById("cabDate").value;
-
-    const time =
-        document.getElementById("cabTime").value;
-
-    const passengers =
-        document.getElementById("cabPassengers").value;
-
-    const cabType =
-        document.getElementById("cabType").value;
-
-    const customerName =
-        document.getElementById("cabCustomerName").value;
-
-    const phone =
-        document.getElementById("cabPhone").value;
-
-    const email =
-        document.getElementById("cabEmail").value;
-
-    const requirement =
-        document.getElementById("cabRequirement").value;
+);
 
 
-    let message = "";
+/* =========================
+   CLOSE MODAL OUTSIDE CLICK
+========================= */
 
-    message += "Hello Coral Crown Travels,\n\n";
+document.addEventListener(
+    "click",
+    function(event){
 
-    message += "CAB BOOKING / FARE ENQUIRY\n\n";
+        const modal =
+            document.getElementById("cabModal");
 
-    message += "Destination: " + destination + "\n";
-    message += "Pickup: " + pickup + "\n";
-    message += "Drop / Sightseeing: " + drop + "\n";
-    message += "Travel Date: " + date + "\n";
-    message += "Pickup Time: " + time + "\n";
-    message += "Passengers: " + passengers + "\n";
-    message += "Cab Type: " + cabType + "\n\n";
+        if(event.target === modal){
 
-    message += "CUSTOMER DETAILS\n";
+            closeCabForm();
 
-    message += "Name: " + customerName + "\n";
-    message += "Phone: " + phone + "\n";
+        }
 
-    if(email !== ""){
-        message += "Email: " + email + "\n";
     }
+);
 
-    if(requirement !== ""){
-        message += "\nSpecial Requirement:\n";
-        message += requirement + "\n";
+
+/* =========================
+   CAB WHATSAPP ENQUIRY
+========================= */
+
+document.getElementById("cabForm").addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const destination =
+            document.getElementById("cabDestination").value;
+
+        const pickup =
+            document.getElementById("cabPickup").value;
+
+        const drop =
+            document.getElementById("cabDrop").value;
+
+        const date =
+            document.getElementById("cabDate").value;
+
+        const time =
+            document.getElementById("cabTime").value;
+
+        const passengers =
+            document.getElementById("cabPassengers").value;
+
+        const cabType =
+            document.getElementById("cabType").value;
+
+        const customerName =
+            document.getElementById("cabCustomerName").value;
+
+        const phone =
+            document.getElementById("cabPhone").value;
+
+        const email =
+            document.getElementById("cabEmail").value;
+
+        const requirement =
+            document.getElementById("cabRequirement").value;
+
+
+        let message = "";
+
+
+        message +=
+            "Hello Coral Crown Travels,\n\n";
+
+        message +=
+            "CAB BOOKING / FARE ENQUIRY\n\n";
+
+
+        message +=
+            "Destination: " +
+            destination +
+            "\n";
+
+        message +=
+            "Pickup: " +
+            pickup +
+            "\n";
+
+        message +=
+            "Drop / Sightseeing: " +
+            drop +
+            "\n";
+
+        message +=
+            "Travel Date: " +
+            date +
+            "\n";
+
+        message +=
+            "Pickup Time: " +
+            time +
+            "\n";
+
+        message +=
+            "Passengers: " +
+            passengers +
+            "\n";
+
+        message +=
+            "Cab Type: " +
+            cabType +
+            "\n\n";
+
+
+        message +=
+            "CUSTOMER DETAILS\n";
+
+
+        message +=
+            "Name: " +
+            customerName +
+            "\n";
+
+        message +=
+            "Phone: " +
+            phone +
+            "\n";
+
+
+        if(email !== ""){
+
+            message +=
+                "Email: " +
+                email +
+                "\n";
+
+        }
+
+
+        if(requirement !== ""){
+
+            message +=
+                "\nSpecial Requirement:\n";
+
+            message +=
+                requirement +
+                "\n";
+
+        }
+
+
+        message +=
+            "\nPlease share the available cab and current fare.";
+
+
+        const whatsappURL =
+            "https://wa.me/917695058610?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
     }
+);
 
-    message += "\nPlease share the available cab and current fare.";
-
-
-    const whatsappURL =
-        "https://wa.me/917695058610?text=" +
-        encodeURIComponent(message);
-
-
-    window.open(whatsappURL, "_blank");
-
-});
-
-        </script>
+</script>
     
 </body>
     </html>
