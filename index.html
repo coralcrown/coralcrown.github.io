@@ -1258,260 +1258,16 @@ document.getElementById("ferryForm").addEventListener("submit", function(event){
 
 });
 
-</script>
-    
-<!-- Cab Enquiry Modal -->
-<div id="cabModal" class="cab-modal">
-
-    <div class="cab-box">
-
-        <button class="close-cab" onclick="closeCabForm()">×</button>
-
-        <h2>Cab Enquiry</h2>
-
-        <p class="cab-subtitle">
-            Book a cab for airport transfers, hotel transfers and sightseeing.
-        </p>
-
-        <form id="cabForm">
-
-            <label>Destination</label>
-
-            <select id="cabDestination" required>
-                <option value="">Select Destination</option>
-                <option value="Port Blair">Port Blair</option>
-                <option value="Havelock / Swaraj Dweep">Havelock / Swaraj Dweep</option>
-                <option value="Neil / Shaheed Dweep">Neil / Shaheed Dweep</option>
-                <option value="Baratang">Baratang</option>
-                <option value="Diglipur">Diglipur</option>
-            </select>
-
-
-            <label>Pickup Location</label>
-
-            <select id="cabPickup" required>
-                <option value="">Select Destination First</option>
-            </select>
-
-
-            <label>Drop / Sightseeing Location</label>
-
-            <select id="cabDrop" required>
-                <option value="">Select Destination First</option>
-            </select>
-
-
-            <label>Travel Date</label>
-
-            <input
-                type="date"
-                id="cabDate"
-                required
-            >
-
-
-            <label>Pickup Time</label>
-
-            <input
-                type="time"
-                id="cabTime"
-                required
-            >
-
-
-            <label>Number of Passengers</label>
-
-            <select id="cabPassengers" required>
-
-                <option value="">Select</option>
-
-                <option value="1">1 Passenger</option>
-                <option value="2">2 Passengers</option>
-                <option value="3">3 Passengers</option>
-                <option value="4">4 Passengers</option>
-                <option value="5">5 Passengers</option>
-                <option value="6">6 Passengers</option>
-                <option value="7">7 Passengers</option>
-                <option value="8">8 Passengers</option>
-                <option value="9">9 Passengers</option>
-                <option value="10">10 Passengers</option>
-
-            </select>
-
-
-            <label>Cab Type</label>
-
-            <select id="cabType" required>
-
-                <option value="">Select Cab Type</option>
-
-                <option>Hatchback</option>
-                <option>Sedan</option>
-                <option>SUV</option>
-                <option>Innova</option>
-                <option>Ertiga</option>
-                <option>Xylo</option>
-                <option>XUV</option>
-                <option>Tempo Traveller</option>
-
-            </select>
-
-
-            <label>Customer Name</label>
-
-            <input
-                type="text"
-                id="cabCustomerName"
-                placeholder="Enter your full name"
-                required
-            >
-
-
-            <label>Contact Number</label>
-
-            <input
-                type="tel"
-                id="cabPhone"
-                placeholder="Enter contact number"
-                required
-            >
-
-
-            <label>Email <span>(Optional)</span></label>
-
-            <input
-                type="email"
-                id="cabEmail"
-                placeholder="Enter email address"
-            >
-
-
-            <label>Special Requirement <span>(Optional)</span></label>
-
-            <textarea
-                id="cabRequirement"
-                placeholder="Any special requirement..."
-                rows="3"
-            ></textarea>
-
-
-            <button type="submit" class="cab-submit">
-                Send Cab Enquiry
-            </button>
-
-        </form>
-
-    </div>
-
-</div> 
-
-        "Baratang Market",
-        "Baratang Island",
-        "Limestone Cave",
-        "Mangrove Creek",
-        "Mud Volcano",
-        "Parrot Island"
-
-    ],
-
-
-    "Diglipur": [
-
-        "Diglipur Market",
-        "Diglipur Town",
-        "Aerial Bay",
-        "Aerial Bay Jetty",
-
-        "Hotels & Stays",
-
-        "Kalipur",
-        "Kalipur Beach",
-        "Saddle Peak",
-        "Lamiya Bay Beach",
-        "Alfred Caves",
-        "Shyam Nagar",
-        "Kalpong River"
-
-    ]
-
-};
-        
-/* Load Locations */
-
-document.getElementById("cabDestination").addEventListener("change", function(){
-
-    const destination = this.value;
-
-    const pickup = document.getElementById("cabPickup");
-    const drop = document.getElementById("cabDrop");
-
-    pickup.innerHTML = '<option value="">Select Pickup Location</option>';
-    drop.innerHTML = '<option value="">Select Drop / Sightseeing Location</option>';
-
-    if(destination && cabLocations[destination]){
-
-
-    cabLocations[destination].forEach(function(location){
-
-        if(
-            location === "Hotels & Resorts" ||
-            location === "Hotels & Stays"
-        ){
-
-            pickup.innerHTML +=
-                '<option disabled>── ' + location + ' ──</option>';
-
-            drop.innerHTML +=
-                '<option disabled>── ' + location + ' ──</option>';
-
-        } else {
-
-            pickup.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
-
-            drop.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
-
-        }
-
-    });
-
-}
-
-
-/* Close modal when clicking outside */
-
-document.addEventListener("click", function(event){
-
-    const modal = document.getElementById("cabModal");
-
-    if(event.target === modal){
-        closeCabForm();
-<script>
-
-/* =========================
-   CAB FORM OPEN / CLOSE
-========================= */
+ <script>
 
 function openCabForm(){
-
     document.getElementById("cabModal").style.display = "block";
-
     document.body.style.overflow = "hidden";
-
 }
 
-
 function closeCabForm(){
-
     document.getElementById("cabModal").style.display = "none";
-
     document.body.style.overflow = "auto";
-
 }
 
 
@@ -1521,138 +1277,152 @@ function closeCabForm(){
 
 const cabLocations = {
 
-    "Port Blair": [
+    "Port Blair": {
 
-        "Veer Savarkar International Airport",
+        transport: [
+            "Veer Savarkar International Airport",
+            "Phoenix Bay Jetty",
+            "Aberdeen Jetty"
+        ],
 
-        "Hotels & Resorts",
-        "SeaShell Coral Cove",
-        "SeaShell Port Blair",
-        "Welcomhotel by ITC Hotels",
-        "Hotel Sand Heaven",
+        hotels: [
+            "SeaShell Coral Cove",
+            "SeaShell Port Blair",
+            "Welcomhotel by ITC Hotels",
+            "Hotel Sand Heaven"
+        ],
 
-        "Flag Point",
-        "Cellular Jail",
-        "Cellular Jail - Light & Sound Show",
-        "Marina Park",
-        "Rajiv Gandhi Water Sports Complex",
-        "Aberdeen Bazaar",
-        "Phoenix Bay",
-        "Haddo",
-        "Junglighat",
-        "Goalghar",
-        "Delanipur",
-        "Shadipur",
-        "Dairy Farm",
-        "Garacharma",
-        "Dollygunj",
-        "Bathubasti",
-        "Prothrapur",
+        sightseeing: [
+            "Cellular Jail",
+            "Cellular Jail - Light & Sound Show",
+            "Marina Park",
+            "Rajiv Gandhi Water Sports Complex",
+            "Aberdeen Bazaar",
+            "Flag Point",
+            "Corbyn's Cove Beach",
+            "Chidiya Tapu",
+            "Wandoor",
+            "Chatham Saw Mill",
+            "Ross Island Jetty",
+            "North Bay Jetty",
+            "Viper Island Jetty",
+            "Mount Manipur"
+        ]
 
-        "Corbyn's Cove Beach",
-        "Chidiya Tapu",
-        "Wandoor",
-        "Chatham Saw Mill",
-        "Ross Island Jetty",
-        "North Bay Jetty",
-        "Viper Island Jetty",
-        "Mount Manipur"
-
-    ],
+    },
 
 
-    "Havelock / Swaraj Dweep": [
+    "Havelock / Swaraj Dweep": {
 
-        "Swaraj Dweep Jetty",
+        transport: [
+            "Swaraj Dweep Jetty"
+        ],
 
-        "Hotels & Resorts",
-        "SeaShell Havelock",
-        "Hotel TSG Blue",
-        "Havelock Island Beach Resort",
-        "Symphony Palms",
-        "Silver Sand Beach Resort",
+        hotels: [
+            "SeaShell Havelock",
+            "Hotel TSG Blue",
+            "Havelock Island Beach Resort",
+            "Symphony Palms",
+            "Silver Sand Beach Resort"
+        ],
 
-        "Govind Nagar",
-        "Vijay Nagar",
-        "Radhanagar",
-        "Kalapathar",
+        sightseeing: [
+            "Govind Nagar",
+            "Vijay Nagar",
+            "Radhanagar",
+            "Kalapathar",
+            "Radhanagar Beach",
+            "Kalapathar Beach",
+            "Govind Nagar Beach",
+            "Vijay Nagar Beach",
+            "Elephant Beach - Boat Point"
+        ]
 
-        "Radhanagar Beach",
-        "Kalapathar Beach",
-        "Govind Nagar Beach",
-        "Vijay Nagar Beach",
-
-        "Elephant Beach - Boat Point"
-
-    ],
-
-
-    "Neil / Shaheed Dweep": [
-
-        "Shaheed Dweep Jetty",
-
-        "Hotels & Resorts",
-        "TSG Aura",
-        "SeaShell Neil",
-        "Silver Sand Beach Resort",
-        "Aquays Hotels & Resorts",
-
-        "Neil Kendra",
-        "Bharatpur",
-        "Laxmanpur",
-        "Sitapur",
-        "Ram Nagar",
-
-        "Bharatpur Beach",
-        "Laxmanpur Beach",
-        "Natural Bridge",
-        "Sitapur Beach"
-
-    ],
+    },
 
 
-    "Baratang": [
+    "Neil / Shaheed Dweep": {
 
-        "Baratang Jetty",
-        "Nilambur Jetty",
-        "Middle Strait",
+        transport: [
+            "Shaheed Dweep Jetty"
+        ],
 
-        "Hotels & Stays",
+        hotels: [
+            "TSG Aura",
+            "SeaShell Neil",
+            "Silver Sand Beach Resort",
+            "Aquays Hotels & Resorts"
+        ],
 
-        "Baratang Market",
-        "Baratang Island",
-        "Limestone Cave",
-        "Mangrove Creek",
-        "Mud Volcano",
-        "Parrot Island"
+        sightseeing: [
+            "Neil Kendra",
+            "Bharatpur",
+            "Laxmanpur",
+            "Sitapur",
+            "Ram Nagar",
+            "Bharatpur Beach",
+            "Laxmanpur Beach",
+            "Natural Bridge",
+            "Sitapur Beach"
+        ]
 
-    ],
+    },
 
 
-    "Diglipur": [
+    "Baratang": {
 
-        "Diglipur Market",
-        "Diglipur Town",
-        "Aerial Bay",
-        "Aerial Bay Jetty",
+        transport: [
+            "Baratang Jetty",
+            "Nilambur Jetty",
+            "Middle Strait"
+        ],
 
-        "Hotels & Stays",
+        hotels: [
+            "Hotels & Stays"
+        ],
 
-        "Kalipur",
-        "Kalipur Beach",
-        "Saddle Peak",
-        "Lamiya Bay Beach",
-        "Alfred Caves",
-        "Shyam Nagar",
-        "Kalpong River"
+        sightseeing: [
+            "Baratang Market",
+            "Baratang Island",
+            "Limestone Cave",
+            "Mangrove Creek",
+            "Mud Volcano",
+            "Parrot Island"
+        ]
 
-    ]
+    },
+
+
+    "Diglipur": {
+
+        transport: [
+            "Aerial Bay Jetty"
+        ],
+
+        hotels: [
+            "Hotels & Stays"
+        ],
+
+        sightseeing: [
+            "Diglipur Market",
+            "Diglipur Town",
+            "Aerial Bay",
+            "Kalipur",
+            "Kalipur Beach",
+            "Saddle Peak",
+            "Lamiya Bay Beach",
+            "Alfred Caves",
+            "Shyam Nagar",
+            "Kalpong River"
+        ]
+
+    }
 
 };
 
 
 /* =========================
-   LOAD PICKUP / DROP LOCATIONS
+   LOAD PICKUP & DROP
 ========================= */
 
 document.getElementById("cabDestination").addEventListener(
@@ -1677,44 +1447,92 @@ document.getElementById("cabDestination").addEventListener(
 
         if(destination && cabLocations[destination]){
 
-            cabLocations[destination].forEach(
-                function(location){
+            const data =
+                cabLocations[destination];
 
-                    if(
-                        location === "Hotels & Resorts" ||
-                        location === "Hotels & Stays"
-                    ){
 
-                        pickup.innerHTML +=
-                            '<option disabled>── ' +
-                            location +
-                            ' ──</option>';
+            /* TRANSPORT */
 
-                        drop.innerHTML +=
-                            '<option disabled>── ' +
-                            location +
-                            ' ──</option>';
+            if(data.transport.length > 0){
 
-                    }else{
+                pickup.innerHTML +=
+                    '<option disabled>── Airport / Jetty ──</option>';
 
-                        pickup.innerHTML +=
-                            '<option value="' +
-                            location +
-                            '">' +
-                            location +
-                            '</option>';
+                drop.innerHTML +=
+                    '<option disabled>── Airport / Jetty ──</option>';
 
-                        drop.innerHTML +=
-                            '<option value="' +
-                            location +
-                            '">' +
-                            location +
-                            '</option>';
 
-                    }
+                data.transport.forEach(function(location){
 
-                }
-            );
+                    pickup.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                    drop.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                });
+
+            }
+
+
+            /* HOTELS */
+
+            if(data.hotels.length > 0){
+
+                pickup.innerHTML +=
+                    '<option disabled>── Hotels ──</option>';
+
+                drop.innerHTML +=
+                    '<option disabled>── Hotels ──</option>';
+
+
+                data.hotels.forEach(function(location){
+
+                    pickup.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                    drop.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                });
+
+            }
+
+
+            /* SIGHTSEEING */
+
+            if(data.sightseeing.length > 0){
+
+                pickup.innerHTML +=
+                    '<option disabled>── Sightseeing ──</option>';
+
+                drop.innerHTML +=
+                    '<option disabled>── Sightseeing ──</option>';
+
+
+                data.sightseeing.forEach(function(location){
+
+                    pickup.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                    drop.innerHTML +=
+                        '<option value="' + location + '">' +
+                        location +
+                        '</option>';
+
+                });
+
+            }
 
         }
 
@@ -1723,7 +1541,7 @@ document.getElementById("cabDestination").addEventListener(
 
 
 /* =========================
-   CLOSE MODAL OUTSIDE CLICK
+   CLOSE WHEN CLICK OUTSIDE
 ========================= */
 
 document.addEventListener(
@@ -1744,7 +1562,7 @@ document.addEventListener(
 
 
 /* =========================
-   CAB WHATSAPP ENQUIRY
+   CAB FORM → WHATSAPP
 ========================= */
 
 document.getElementById("cabForm").addEventListener(
@@ -1797,64 +1615,42 @@ document.getElementById("cabForm").addEventListener(
         message +=
             "CAB BOOKING / FARE ENQUIRY\n\n";
 
+        message +=
+            "Destination: " + destination + "\n";
 
         message +=
-            "Destination: " +
-            destination +
-            "\n";
+            "Pickup: " + pickup + "\n";
 
         message +=
-            "Pickup: " +
-            pickup +
-            "\n";
+            "Drop / Sightseeing: " + drop + "\n";
 
         message +=
-            "Drop / Sightseeing: " +
-            drop +
-            "\n";
+            "Travel Date: " + date + "\n";
 
         message +=
-            "Travel Date: " +
-            date +
-            "\n";
+            "Pickup Time: " + time + "\n";
 
         message +=
-            "Pickup Time: " +
-            time +
-            "\n";
+            "Passengers: " + passengers + "\n";
 
         message +=
-            "Passengers: " +
-            passengers +
-            "\n";
-
-        message +=
-            "Cab Type: " +
-            cabType +
-            "\n\n";
+            "Cab Type: " + cabType + "\n\n";
 
 
         message +=
             "CUSTOMER DETAILS\n";
 
+        message +=
+            "Name: " + customerName + "\n";
 
         message +=
-            "Name: " +
-            customerName +
-            "\n";
-
-        message +=
-            "Phone: " +
-            phone +
-            "\n";
+            "Phone: " + phone + "\n";
 
 
         if(email !== ""){
 
             message +=
-                "Email: " +
-                email +
-                "\n";
+                "Email: " + email + "\n";
 
         }
 
@@ -1865,8 +1661,7 @@ document.getElementById("cabForm").addEventListener(
                 "\nSpecial Requirement:\n";
 
             message +=
-                requirement +
-                "\n";
+                requirement + "\n";
 
         }
 
@@ -1888,7 +1683,8 @@ document.getElementById("cabForm").addEventListener(
     }
 );
 
-</script>
+</script>           
+
     
 </body>
     </html>
