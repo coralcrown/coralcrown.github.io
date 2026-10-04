@@ -1566,17 +1566,25 @@ document.getElementById("cabDestination").addEventListener("change", function(){
 
         cabLocations[destination].forEach(function(location){
 
-            pickup.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
+    if(location === "Hotels & Resorts" || location === "Hotels & Stays"){
 
-            drop.innerHTML +=
-                '<option value="' + location + '">' +
-                location +
-                '</option>';
+        pickup.innerHTML +=
+            '<option disabled>── ' + location + ' ──</option>';
 
-        });
+        drop.innerHTML +=
+            '<option disabled>── ' + location + ' ──</option>';
+
+    } else {
+
+        pickup.innerHTML +=
+            '<option value="' + location + '">' +
+            location +
+            '</option>';
+
+        drop.innerHTML +=
+            '<option value="' + location + '">' +
+            location +
+            '</option>';
 
     }
 
