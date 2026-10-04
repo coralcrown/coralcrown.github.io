@@ -4,88 +4,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coral Crown Travels | Andaman Travel</title>
+<title>Coral Crown Travels | Andaman Tour & Travel</title>
 
 <style>
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5fafc;
     color:#173f52;
-    background:#f7fbfc;
     line-height:1.6;
 }
 
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ================= HEADER ================= */
+
 header{
-    background:white;
-    padding:12px 6%;
+    width:100%;
+    height:75px;
+    background:#ffffff;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:8px 6%;
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    box-shadow:0 2px 15px rgba(0,0,0,.10);
 }
 
 .logo{
     display:flex;
     align-items:center;
-    max-width:55px;
 }
 
 .site-logo{
-    width:55px !important;
-    height:55px !important;
+    width:55px;
+    height:55px;
     object-fit:contain;
-    display:block;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
 nav a{
-    text-decoration:none;
     color:#073b5c;
-    margin-left:22px;
-    font-weight:600;
+    font-weight:bold;
+    font-size:15px;
 }
 
+nav a:hover{
+    color:#0b9aaa;
+}
+
+/* ================= HERO ================= */
+
 .hero{
-    min-height:520px;
+    min-height:560px;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:60px 20px;
+    color:white;
+    padding:50px 20px;
+
     background:
-    linear-gradient(rgba(0,40,60,.45),rgba(0,40,60,.55)),
-    url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(
+        rgba(0,45,65,.45),
+        rgba(0,45,65,.65)
+    ),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Radhanagar_Beach_Havelock_Andaman.jpg");
+
     background-size:cover;
     background-position:center;
-    color:white;
+}
+
+.hero-content{
+    max-width:850px;
 }
 
 .hero h1{
-    font-size:48px;
+    font-size:55px;
     margin-bottom:15px;
+    text-shadow:0 3px 10px rgba(0,0,0,.35);
+}
+
+.hero h2{
+    font-size:28px;
+    margin-bottom:12px;
 }
 
 .hero p{
     font-size:20px;
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .hero-btn{
     display:inline-block;
-    background:#0c9aa8;
-    color:white;
-    text-decoration:none;
-    padding:13px 25px;
-    border-radius:8px;
+    background:#0b9aaa;
+    color:#fff;
+    padding:14px 28px;
+    border-radius:30px;
     font-weight:bold;
+    transition:.3s;
 }
+
+.hero-btn:hover{
+    background:#087b89;
+    transform:translateY(-2px);
+}
+
+/* ================= GENERAL ================= */
 
 section{
     padding:70px 6%;
@@ -93,374 +142,534 @@ section{
 
 .section-title{
     text-align:center;
-    font-size:32px;
     margin-bottom:40px;
-    color:#073b5c;
 }
 
-.services-grid,
-.package-grid,
-.destination-grid{
+.section-title h2{
+    color:#073b5c;
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#617783;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
-.service,
-.package,
-.destination{
-    background:white;
-    padding:28px;
-    border-radius:16px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
 .service{
+    background:#fff;
+    padding:30px 25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 6px 25px rgba(0,0,0,.08);
     cursor:pointer;
-    transition:.2s;
+    transition:.3s;
 }
 
 .service:hover{
-    transform:translateY(-4px);
+    transform:translateY(-6px);
+    box-shadow:0 10px 30px rgba(0,0,0,.13);
 }
 
 .service-icon{
-    font-size:38px;
-    margin-bottom:12px;
+    font-size:45px;
+    margin-bottom:15px;
 }
 
-.service h3,
-.package h3,
-.destination h3{
+.service h3{
     color:#073b5c;
-    margin-bottom:10px;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.service p{
+    color:#647985;
+    margin-bottom:15px;
 }
 
 .service-link{
-    display:inline-block;
-    margin-top:15px;
-    color:#0c8f9d;
+    color:#0b9aaa;
     font-weight:bold;
 }
 
-.package{
-    border-top:4px solid #0c9aa8;
+/* ================= PACKAGES ================= */
+
+.packages{
+    background:#eef7fa;
 }
 
-.about{
-    background:#eaf7f8;
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
 }
 
-.contact-box{
-    max-width:700px;
-    margin:auto;
-    text-align:center;
-    background:white;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#25D366;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    font-size:25px;
-    z-index:3000;
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
-}
-
-/* MODAL BASE */
-
-.ferry-modal,
-.cab-modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    background:rgba(0,0,0,.65);
-    padding:20px;
-    overflow-y:auto;
-}
-
-.ferry-box,
-.cab-box{
-    position:relative;
-    max-width:650px;
-    margin:30px auto;
+.package-card{
     background:white;
     border-radius:18px;
-    padding:30px;
+    overflow:hidden;
+    box-shadow:0 6px 22px rgba(0,0,0,.08);
+    transition:.3s;
 }
 
-.close-ferry,
-.close-cab{
-    position:absolute;
-    right:15px;
-    top:10px;
-    border:0;
-    background:none;
-    font-size:32px;
-    cursor:pointer;
-    color:#555;
+.package-card:hover{
+    transform:translateY(-5px);
 }
 
-.ferry-box h2,
-.cab-box h2{
+.package-image{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.package-content{
+    padding:22px;
+}
+
+.package-content h3{
     color:#073b5c;
+    font-size:21px;
     margin-bottom:8px;
 }
 
-.ferry-subtitle,
-.cab-subtitle{
-    color:#666;
-    margin-bottom:20px;
+.package-content p{
+    color:#657984;
+    font-size:14px;
+    margin-bottom:15px;
 }
 
-.ferry-box label,
-.cab-box label{
-    display:block;
-    margin:14px 0 6px;
-    font-weight:600;
-}
-
-.ferry-box input,
-.ferry-box select,
-.cab-box input,
-.cab-box select,
-.cab-box textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #d5e1e5;
-    border-radius:9px;
-    font-family:inherit;
-}
-
-.ferry-submit,
-.cab-submit{
-    width:100%;
-    margin-top:22px;
-    padding:14px;
-    border:0;
-    border-radius:9px;
-    background:#073b5c;
-    color:white;
+.package-btn{
+    display:inline-block;
+    background:#0b9aaa;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:25px;
+    font-size:14px;
     font-weight:bold;
-    font-size:16px;
-    cursor:pointer;
 }
 
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
+/* ================= RESPONSIVE ================= */
 
-.passenger-card{
-    margin-top:18px;
-    padding:15px;
-    background:#f4fafb;
-    border-radius:10px;
-}
-
-.passenger-card h4{
-    margin-bottom:8px;
-}
-
-.passenger-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:10px;
-}
-
-footer{
-    background:#073b5c;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-}
-
-@media(max-width:800px){
+@media(max-width:900px){
 
     nav{
-        display:none;
+        gap:12px;
+    }
+
+    nav a{
+        font-size:13px;
     }
 
     .hero h1{
-        font-size:36px;
+        font-size:42px;
     }
 
-    .services-grid,
-    .package-grid,
-    .destination-grid{
+    .services{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .package-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    header{
+        height:auto;
+        min-height:70px;
+        padding:8px 5%;
+    }
+
+    nav{
+        gap:10px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:500px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:50px 5%;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .services{
         grid-template-columns:1fr;
     }
 
-    .form-row,
-    .passenger-grid{
+    .package-grid{
         grid-template-columns:1fr;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
 
-<a href="#home" class="logo">
-<img src="logo.png" class="site-logo" alt="Coral Crown Travels">
-</a>
+    <a href="#home" class="logo">
+        <img src="logo.png"
+             alt="Coral Crown Travels"
+             class="site-logo">
+    </a>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#packages">Packages</a>
-<a href="#destinations">Destinations</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
 </header>
 
+
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="home">
 
-<div>
-<h1>Coral Crown Travels</h1>
+    <div class="hero-content">
 
-<p>Explore the beautiful Andaman Islands with us.</p>
+        <h1>Coral Crown Travels</h1>
 
-<a href="#services" class="hero-btn">
-Plan Your Trip
-</a>
-</div>
+        <h2>Discover the Beauty of Andaman</h2>
+
+        <p>
+            Comfortable stays, reliable transfers,
+            ferry bookings and unforgettable island experiences.
+        </p>
+
+        <a href="#packages" class="hero-btn">
+            Explore Packages
+        </a>
+
+    </div>
 
 </section>
+
+
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
 
-<h2 class="section-title">Our Services</h2>
+    <div class="section-title">
 
-<div class="services-grid">
+        <h2>Our Services</h2>
 
-<div class="service" onclick="openFerryForm()">
-<div class="service-icon">⛴️</div>
-<h3>Ferry</h3>
-<p>Makruzz, Nautika & Green Ocean.</p>
-<span class="service-link">Check Fare →</span>
-</div>
+        <p>
+            Everything you need for a comfortable Andaman holiday.
+        </p>
 
-<div class="service" onclick="openCabForm()">
-<div class="service-icon">🚕</div>
-<h3>Cab</h3>
-<p>Airport, hotel & sightseeing transfers.</p>
-<span class="service-link">Book / Enquire →</span>
-</div>
+    </div>
 
-<div class="service">
-<div class="service-icon">🤿</div>
-<h3>Activities</h3>
-<p>Water sports and island experiences.</p>
-</div>
 
-</div>
+    <div class="services">
+
+
+        <div class="service" onclick="openFerryForm()">
+
+            <div class="service-icon">⛴️</div>
+
+            <h3>Ferry</h3>
+
+            <p>
+                Makruzz, Nautika & Green Ocean ferry enquiries.
+            </p>
+
+            <span class="service-link">
+                Check Fare →
+            </span>
+
+        </div>
+
+
+        <div class="service" onclick="openCabForm()">
+
+            <div class="service-icon">🚕</div>
+
+            <h3>Cab</h3>
+
+            <p>
+                Airport, hotel, jetty and sightseeing transfers.
+            </p>
+
+            <span class="service-link">
+                Book / Enquire →
+            </span>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">🤿</div>
+
+            <h3>Activities</h3>
+
+            <p>
+                Water sports and exciting island experiences.
+            </p>
+
+            <span class="service-link">
+                Explore Activities
+            </span>
+
+        </div>
+
+
+    </div>
 
 </section>
 
-<section id="packages">
 
-<h2 class="section-title">Andaman Packages</h2>
+<!-- ================= PACKAGES ================= -->
 
-<div class="package-grid">
+<section class="packages" id="packages">
 
-<div class="package">
-<h3>3N / 4D</h3>
-<p>Port Blair + Havelock</p>
-</div>
+    <div class="section-title">
 
-<div class="package">
-<h3>4N / 5D</h3>
-<p>Port Blair + Havelock</p>
-</div>
+        <h2>Popular Andaman Packages</h2>
 
-<div class="package">
-<h3>5N / 6D</h3>
-<p>Port Blair + Havelock + Neil</p>
-</div>
+        <p>
+            Choose a package or request a fully customized holiday.
+        </p>
 
-<div class="package">
-<h3>Customized Package</h3>
-<p>Create your own Andaman holiday.</p>
-</div>
+    </div>
 
-</div>
+
+    <div class="package-grid">
+
+
+        <!-- 3N 4D -->
+
+        <div class="package-card">
+
+            <img
+                class="package-image"
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Cellular_Jail,_Port_Blair.jpg"
+                alt="Cellular Jail Port Blair">
+
+            <div class="package-content">
+
+                <h3>3 Nights / 4 Days</h3>
+
+                <p>
+                    Port Blair and Havelock with beautiful beaches,
+                    island sightseeing and comfortable transfers.
+                </p>
+
+                <a href="#contact" class="package-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4N 5D -->
+
+        <div class="package-card">
+
+            <img
+                class="package-image"
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Radhanagar_Beach_in_the_Havelock,_Andaman_and_Nicobar_Islands.jpg"
+                alt="Radhanagar Beach Havelock">
+
+            <div class="package-content">
+
+                <h3>4 Nights / 5 Days</h3>
+
+                <p>
+                    Explore Port Blair, Havelock and the famous
+                    Radhanagar Beach with island transfers.
+                </p>
+
+                <a href="#contact" class="package-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5N 6D -->
+
+        <div class="package-card">
+
+            <img
+                class="package-image"
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Neil_Island_Andaman.jpg"
+                alt="Neil Island">
+
+            <div class="package-content">
+
+                <h3>5 Nights / 6 Days</h3>
+
+                <p>
+                    Port Blair, Havelock and Neil Island with
+                    beaches, sightseeing and ferry transfers.
+                </p>
+
+                <a href="#contact" class="package-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOM -->
+
+        <div class="package-card">
+
+            <img
+                class="package-image"
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Andaman_baratang.jpg"
+                alt="Baratang Island">
+
+            <div class="package-content">
+
+                <h3>Customized Package</h3>
+
+                <p>
+                    Create your own Andaman holiday according to
+                    your dates, destinations and requirements.
+                </p>
+
+                <a href="#contact" class="package-btn">
+                    Plan My Trip
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
+
+
+<!-- ================= DESTINATIONS ================= -->
 
 <section id="destinations">
 
-<h2 class="section-title">Popular Destinations</h2>
+<div class="section-title">
+<h2>Explore Andaman</h2>
+<p>Discover the most beautiful destinations of the islands.</p>
+</div>
 
 <div class="destination-grid">
 
-<div class="destination">
+<div class="destination-card">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Cellular_Jail,_Port_Blair.jpg">
+<div class="destination-content">
 <h3>Port Blair</h3>
-<p>Capital city and gateway to the Andaman Islands.</p>
+<p>Explore Cellular Jail, Corbyn's Cove, Chidiya Tapu and historic attractions.</p>
+</div>
 </div>
 
-<div class="destination">
+<div class="destination-card">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Radhanagar_Beach_Havelock_Andaman.jpg">
+<div class="destination-content">
 <h3>Havelock Island</h3>
-<p>Famous for Radhanagar Beach and island experiences.</p>
+<p>Enjoy Radhanagar Beach, Kalapathar and exciting island experiences.</p>
+</div>
 </div>
 
-<div class="destination">
+<div class="destination-card">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Neil_Island_Andaman.jpg">
+<div class="destination-content">
 <h3>Neil Island</h3>
-<p>Peaceful beaches, Natural Bridge and beautiful sunsets.</p>
+<p>Visit Bharatpur Beach, Laxmanpur Beach and the Natural Bridge.</p>
+</div>
 </div>
 
-<div class="destination">
+<div class="destination-card">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Andaman_baratang.jpg">
+<div class="destination-content">
 <h3>Baratang</h3>
-<p>Limestone caves, mangroves and natural attractions.</p>
+<p>Experience Limestone Caves, mangrove creeks and the famous Mud Volcano.</p>
+</div>
 </div>
 
-<div class="destination">
+<div class="destination-card">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Andaman_baratang.jpg">
+<div class="destination-content">
 <h3>Diglipur</h3>
-<p>Ross & Smith Islands, Kalipur and Saddle Peak.</p>
+<p>Explore Kalipur, Lamiya Bay, Saddle Peak and the natural beauty of North Andaman.</p>
+</div>
 </div>
 
 </div>
-
 </section>
 
-<section class="about" id="about">
 
-<h2 class="section-title">About Coral Crown Travels</h2>
+<!-- ================= ABOUT ================= -->
 
-<div class="contact-box">
+<section id="about">
+
+<div class="about-box">
+
+<div class="section-title">
+<h2>About Coral Crown Travels</h2>
+</div>
 
 <p>
-Coral Crown Travels is an Andaman-based travel service
-helping visitors plan comfortable and memorable island
-holidays with ferry, cab, sightseeing and customized
-travel arrangements.
+Coral Crown Travels is an Andaman-based travel service helping
+travellers plan comfortable and memorable island holidays.
+From ferry enquiries and cab transfers to sightseeing and
+customized tour packages, we help make your Andaman journey
+simple and convenient.
 </p>
 
 </div>
 
 </section>
 
+
+<!-- ================= CONTACT ================= -->
+
 <section id="contact">
 
-<h2 class="section-title">Contact Us</h2>
+<div class="section-title">
+<h2>Plan Your Andaman Trip</h2>
+<p>Tell us your travel requirements and we will help you plan your trip.</p>
+</div>
 
 <div class="contact-box">
 
@@ -468,19 +677,171 @@ travel arrangements.
 
 <p>Port Blair, Andaman & Nicobar Islands</p>
 
-<p>Phone: 7695058610</p>
+<p>
+<strong>Phone:</strong> 7695058610
+</p>
 
-<p>Email: coralcrowntravels@gmail.com</p>
+<p>
+<strong>Email:</strong> coralcrowntravels@gmail.com
+</p>
+
+<a
+href="https://wa.me/917695058610"
+target="_blank"
+class="contact-btn">
+Chat on WhatsApp
+</a>
 
 </div>
 
 </section>
 
-<a class="whatsapp"
-href="https://wa.me/917695058610"
-target="_blank">☎</a>
 
-<!-- ==================== FERRY ENQUIRY ==================== -->
+<!-- ================= WHATSAPP ================= -->
+
+<a
+href="https://wa.me/917695058610"
+target="_blank"
+class="whatsapp-btn">
+WhatsApp
+</a>
+
+
+<!-- ================= DESTINATION CSS ================= -->
+
+<style>
+
+.destination-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.destination-card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 6px 22px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.destination-card:hover{
+transform:translateY(-5px);
+}
+
+.destination-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.destination-content{
+padding:20px;
+}
+
+.destination-content h3{
+color:#073b5c;
+font-size:22px;
+margin-bottom:8px;
+}
+
+.destination-content p{
+color:#657984;
+font-size:14px;
+}
+
+
+.about-box{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:40px;
+border-radius:18px;
+box-shadow:0 6px 22px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.about-box p{
+color:#607681;
+font-size:16px;
+}
+
+
+.contact-box{
+max-width:650px;
+margin:auto;
+background:#fff;
+padding:35px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 22px rgba(0,0,0,.08);
+}
+
+.contact-box h3{
+font-size:26px;
+color:#073b5c;
+margin-bottom:12px;
+}
+
+.contact-box p{
+margin:8px 0;
+color:#617783;
+}
+
+.contact-btn{
+display:inline-block;
+margin-top:20px;
+background:#0b9aaa;
+color:#fff;
+padding:12px 25px;
+border-radius:25px;
+font-weight:bold;
+}
+
+
+.whatsapp-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#18a957;
+color:#fff;
+padding:13px 20px;
+border-radius:30px;
+font-weight:bold;
+box-shadow:0 4px 15px #0003;
+z-index:999;
+}
+
+
+@media(max-width:900px){
+
+.destination-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.destination-grid{
+grid-template-columns:1fr;
+}
+
+.about-box,
+.contact-box{
+padding:25px 20px;
+}
+
+.whatsapp-btn{
+right:12px;
+bottom:12px;
+}
+
+}
+
+</style>
+
+<!-- ================= FERRY MODAL ================= -->
 
 <div id="ferryModal" class="ferry-modal">
 
@@ -491,7 +852,7 @@ target="_blank">☎</a>
 <h2>Ferry Enquiry</h2>
 
 <p class="ferry-subtitle">
-Check ferry fare and availability for your Andaman journey.
+Check current fare and availability for your ferry journey.
 </p>
 
 <form id="ferryForm">
@@ -499,55 +860,36 @@ Check ferry fare and availability for your Andaman journey.
 <label>Ferry</label>
 
 <select id="ferryName" required>
-
 <option value="">Select Ferry</option>
-
-<option value="Makruzz">Makruzz</option>
-
-<option value="Nautika">Nautika</option>
-
-<option value="Green Ocean">Green Ocean</option>
-
+<option>Makruzz</option>
+<option>Nautika</option>
+<option>Green Ocean</option>
 </select>
 
 
 <div class="form-row">
 
 <div>
-
 <label>From</label>
 
 <select id="ferryFrom" required>
-
 <option value="">Select</option>
-
-<option value="Port Blair">Port Blair</option>
-
-<option value="Havelock">Havelock</option>
-
-<option value="Neil Island">Neil Island</option>
-
+<option>Port Blair</option>
+<option>Havelock</option>
+<option>Neil Island</option>
 </select>
-
 </div>
 
 
 <div>
-
 <label>To</label>
 
 <select id="ferryTo" required>
-
 <option value="">Select</option>
-
-<option value="Port Blair">Port Blair</option>
-
-<option value="Havelock">Havelock</option>
-
-<option value="Neil Island">Neil Island</option>
-
+<option>Port Blair</option>
+<option>Havelock</option>
+<option>Neil Island</option>
 </select>
-
 </div>
 
 </div>
@@ -566,11 +908,10 @@ required
 
 <select
 id="passengerCount"
-required
->
+onchange="createPassengerFields()"
+required>
 
 <option value="">Select</option>
-
 <option value="1">1 Passenger</option>
 <option value="2">2 Passengers</option>
 <option value="3">3 Passengers</option>
@@ -598,7 +939,9 @@ required
 >
 
 
-<label>Email <span>(Optional)</span></label>
+<label>
+Email <span>(Optional)</span>
+</label>
 
 <input
 type="email"
@@ -609,9 +952,10 @@ placeholder="Enter email address"
 
 <button
 type="submit"
-class="ferry-submit"
->
+class="ferry-submit">
+
 Check Fare / Send Enquiry
+
 </button>
 
 </form>
@@ -621,33 +965,169 @@ Check Fare / Send Enquiry
 </div>
 
 
-<!-- ==================== FERRY JAVASCRIPT ==================== -->
+<!-- ================= FERRY CSS ================= -->
+
+<style>
+
+.ferry-modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:auto;
+background:rgba(0,0,0,.65);
+padding:30px 15px;
+}
+
+.ferry-box{
+position:relative;
+background:#fff;
+max-width:650px;
+margin:20px auto;
+padding:32px;
+border-radius:18px;
+box-shadow:0 10px 40px #0005;
+}
+
+.ferry-box h2{
+color:#073b5c;
+margin-bottom:5px;
+}
+
+.ferry-subtitle{
+color:#657984;
+margin-bottom:25px;
+}
+
+.close-ferry{
+position:absolute;
+right:15px;
+top:10px;
+border:0;
+background:none;
+font-size:32px;
+cursor:pointer;
+color:#555;
+}
+
+.ferry-box label{
+display:block;
+font-weight:bold;
+color:#173f52;
+margin:14px 0 6px;
+}
+
+.ferry-box input,
+.ferry-box select{
+width:100%;
+padding:12px;
+border:1px solid #ccd9de;
+border-radius:8px;
+font-size:15px;
+background:#fff;
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.passenger-card{
+margin-top:18px;
+padding:18px;
+background:#f2f8fa;
+border-radius:12px;
+border:1px solid #dcebef;
+}
+
+.passenger-card h4{
+color:#073b5c;
+margin-bottom:10px;
+}
+
+.passenger-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:12px;
+}
+
+.ferry-submit{
+width:100%;
+border:0;
+margin-top:25px;
+padding:14px;
+border-radius:9px;
+background:#0b9aaa;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.ferry-submit:hover{
+background:#087b89;
+}
+
+.ferry-box span{
+font-weight:normal;
+color:#778891;
+font-size:13px;
+}
+
+@media(max-width:600px){
+
+.ferry-box{
+padding:25px 18px;
+margin:10px auto;
+}
+
+.form-row{
+grid-template-columns:1fr;
+gap:0;
+}
+
+.passenger-grid{
+grid-template-columns:1fr;
+gap:0;
+}
+
+}
+
+</style>
+
+<!-- ================= FERRY JAVASCRIPT ================= -->
 
 <script>
 
 function openFerryForm(){
 
-    document.getElementById("ferryModal").style.display = "block";
+    document.getElementById("ferryModal").style.display="block";
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow="hidden";
 
 }
 
 
 function closeFerryForm(){
 
-    document.getElementById("ferryModal").style.display = "none";
+    document.getElementById("ferryModal").style.display="none";
 
-    document.body.style.overflow = "auto";
+    document.body.style.overflow="auto";
 
 }
 
 
-document.addEventListener("click", function(event){
+/* Close when clicking outside */
 
-    const modal = document.getElementById("ferryModal");
+document.addEventListener("click",function(event){
 
-    if(event.target === modal){
+    const modal=document.getElementById("ferryModal");
+
+    if(event.target===modal){
 
         closeFerryForm();
 
@@ -656,18 +1136,24 @@ document.addEventListener("click", function(event){
 });
 
 
-document.getElementById("passengerCount").addEventListener("change", function(){
+/* Passenger fields */
 
-    const count = Number(this.value);
+function createPassengerFields(){
 
-    const container = document.getElementById("passengerFields");
+    const count=
+        Number(
+            document.getElementById("passengerCount").value
+        );
 
-    container.innerHTML = "";
+    const container=
+        document.getElementById("passengerFields");
+
+    container.innerHTML="";
 
 
-    for(let i = 1; i <= count; i++){
+    for(let i=1;i<=count;i++){
 
-        container.innerHTML += `
+        container.innerHTML+=`
 
         <div class="passenger-card">
 
@@ -683,8 +1169,7 @@ document.getElementById("passengerCount").addEventListener("change", function(){
                     type="text"
                     id="passengerName${i}"
                     placeholder="Full Name"
-                    required
-                    >
+                    required>
 
                 </div>
 
@@ -695,16 +1180,23 @@ document.getElementById("passengerCount").addEventListener("change", function(){
 
                     <select
                     id="passengerGender${i}"
-                    required
-                    >
+                    required>
 
-                        <option value="">Select</option>
+                        <option value="">
+                        Select
+                        </option>
 
-                        <option value="Male">Male</option>
+                        <option value="Male">
+                        Male
+                        </option>
 
-                        <option value="Female">Female</option>
+                        <option value="Female">
+                        Female
+                        </option>
 
-                        <option value="Other">Other</option>
+                        <option value="Other">
+                        Other
+                        </option>
 
                     </select>
 
@@ -721,8 +1213,7 @@ document.getElementById("passengerCount").addEventListener("change", function(){
                     placeholder="Age"
                     min="1"
                     max="120"
-                    required
-                    >
+                    required>
 
                 </div>
 
@@ -734,107 +1225,138 @@ document.getElementById("passengerCount").addEventListener("change", function(){
 
     }
 
-});
+}
 
 
-document.getElementById("ferryForm").addEventListener("submit", function(event){
+/* Ferry form submit */
+
+document
+.getElementById("ferryForm")
+.addEventListener("submit",function(event){
 
     event.preventDefault();
 
 
-    const ferry =
+    const ferry=
         document.getElementById("ferryName").value;
 
-    const from =
+    const from=
         document.getElementById("ferryFrom").value;
 
-    const to =
+    const to=
         document.getElementById("ferryTo").value;
 
-    const date =
+    const date=
         document.getElementById("ferryDate").value;
 
-    const count =
-        Number(document.getElementById("passengerCount").value);
+    const count=
+        Number(
+            document.getElementById("passengerCount").value
+        );
 
-    const phone =
+    const phone=
         document.getElementById("customerPhone").value;
 
-    const email =
+    const email=
         document.getElementById("customerEmail").value;
 
 
-    let message = "";
+    let message=
+        "Hello Coral Crown Travels,\n\n";
+
+    message+=
+        "FERRY FARE & AVAILABILITY ENQUIRY\n\n";
+
+    message+=
+        "Ferry: "+ferry+"\n";
+
+    message+=
+        "From: "+from+"\n";
+
+    message+=
+        "To: "+to+"\n";
+
+    message+=
+        "Travel Date: "+date+"\n";
+
+    message+=
+        "Number of Passengers: "+count+"\n\n";
 
 
-    message += "Hello Coral Crown Travels,\n\n";
-
-    message += "FERRY FARE & AVAILABILITY ENQUIRY\n\n";
-
-    message += "Ferry: " + ferry + "\n";
-
-    message += "From: " + from + "\n";
-
-    message += "To: " + to + "\n";
-
-    message += "Travel Date: " + date + "\n";
-
-    message += "Number of Passengers: " + count + "\n\n";
+    message+=
+        "PASSENGER DETAILS\n";
 
 
-    message += "PASSENGER DETAILS\n";
+    for(let i=1;i<=count;i++){
+
+        const name=
+            document
+            .getElementById(
+                "passengerName"+i
+            ).value;
+
+        const gender=
+            document
+            .getElementById(
+                "passengerGender"+i
+            ).value;
+
+        const age=
+            document
+            .getElementById(
+                "passengerAge"+i
+            ).value;
 
 
-    for(let i = 1; i <= count; i++){
+        message+=
+            "\nPassenger "+i+"\n";
 
-        const name =
-            document.getElementById("passengerName" + i).value;
+        message+=
+            "Name: "+name+"\n";
 
-        const gender =
-            document.getElementById("passengerGender" + i).value;
+        message+=
+            "Gender: "+gender+"\n";
 
-        const age =
-            document.getElementById("passengerAge" + i).value;
-
-
-        message += "\nPassenger " + i + "\n";
-
-        message += "Name: " + name + "\n";
-
-        message += "Gender: " + gender + "\n";
-
-        message += "Age: " + age + "\n";
+        message+=
+            "Age: "+age+"\n";
 
     }
 
 
-    message += "\nCONTACT DETAILS\n";
+    message+=
+        "\nCONTACT DETAILS\n";
 
-    message += "Phone: " + phone + "\n";
+    message+=
+        "Phone: "+phone+"\n";
 
 
-    if(email !== ""){
+    if(email!==""){
 
-        message += "Email: " + email + "\n";
+        message+=
+            "Email: "+email+"\n";
 
     }
 
 
-    message += "\nPlease check the current ferry fare and availability.";
+    message+=
+        "\nPlease check the current ferry fare and availability.";
 
 
-    const whatsappURL =
-        "https://wa.me/917695058610?text=" +
+    const whatsappURL=
+        "https://wa.me/917695058610?text="+
         encodeURIComponent(message);
 
 
-    window.open(whatsappURL, "_blank");
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
 
 });
 
-</script>
+    </script>
 
-<!-- ==================== CAB ENQUIRY ==================== -->
+<!-- ================= CAB MODAL ================= -->
 
 <div id="cabModal" class="cab-modal">
 
@@ -853,45 +1375,34 @@ Book a cab for airport transfers, hotel transfers and sightseeing.
 <label>Destination</label>
 
 <select id="cabDestination" required>
-
 <option value="">Select Destination</option>
-
 <option value="Port Blair">Port Blair</option>
-
 <option value="Havelock / Swaraj Dweep">
 Havelock / Swaraj Dweep
 </option>
-
 <option value="Neil / Shaheed Dweep">
 Neil / Shaheed Dweep
 </option>
-
 <option value="Baratang">Baratang</option>
-
 <option value="Diglipur">Diglipur</option>
-
 </select>
 
 
 <label>Pickup Location</label>
 
 <select id="cabPickup" required>
-
 <option value="">
 Select Destination First
 </option>
-
 </select>
 
 
 <label>Drop / Sightseeing Location</label>
 
 <select id="cabDrop" required>
-
 <option value="">
 Select Destination First
 </option>
-
 </select>
 
 
@@ -971,7 +1482,9 @@ required
 >
 
 
-<label>Email <span>(Optional)</span></label>
+<label>
+Email <span>(Optional)</span>
+</label>
 
 <input
 type="email"
@@ -980,20 +1493,22 @@ placeholder="Enter email address"
 >
 
 
-<label>Special Requirement <span>(Optional)</span></label>
+<label>
+Special Requirement <span>(Optional)</span>
+</label>
 
 <textarea
 id="cabRequirement"
 placeholder="Any special requirement..."
-rows="3"
-></textarea>
+rows="3"></textarea>
 
 
 <button
 type="submit"
-class="cab-submit"
->
+class="cab-submit">
+
 Send Cab Enquiry
+
 </button>
 
 </form>
@@ -1003,7 +1518,103 @@ Send Cab Enquiry
 </div>
 
 
-<!-- ==================== CAB JAVASCRIPT ==================== -->
+<!-- ================= CAB CSS ================= -->
+
+<style>
+
+.cab-modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:auto;
+background:rgba(0,0,0,.65);
+padding:30px 15px;
+}
+
+.cab-box{
+position:relative;
+background:#fff;
+max-width:650px;
+margin:20px auto;
+padding:32px;
+border-radius:18px;
+box-shadow:0 10px 40px #0005;
+}
+
+.cab-box h2{
+color:#073b5c;
+margin-bottom:5px;
+}
+
+.cab-subtitle{
+color:#657984;
+margin-bottom:25px;
+}
+
+.close-cab{
+position:absolute;
+right:15px;
+top:10px;
+border:0;
+background:none;
+font-size:32px;
+cursor:pointer;
+color:#555;
+}
+
+.cab-box label{
+display:block;
+font-weight:bold;
+color:#173f52;
+margin:14px 0 6px;
+}
+
+.cab-box input,
+.cab-box select,
+.cab-box textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccd9de;
+border-radius:8px;
+font-size:15px;
+font-family:Arial,sans-serif;
+background:#fff;
+}
+
+.cab-box textarea{
+resize:vertical;
+}
+
+.cab-submit{
+width:100%;
+border:0;
+margin-top:25px;
+padding:14px;
+border-radius:9px;
+background:#0b9aaa;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.cab-submit:hover{
+background:#087b89;
+}
+
+.cab-box span{
+font-weight:normal;
+color:#778891;
+font-size:13px;
+}
+
+</style>
+
+<!-- ================= CAB LOCATIONS ================= -->
 
 <script>
 
@@ -1153,271 +1764,255 @@ sightseeing: [
 };
 
 
-function addCabGroup(select, title, locations){
+function addLocationOptions(select,items){
 
-const group = document.createElement("optgroup");
+select.innerHTML=
+'<option value="">Select Location</option>';
 
-group.label = title;
+items.forEach(function(item){
 
-
-locations.forEach(function(location){
-
-const option =
+const option=
 document.createElement("option");
 
-option.value = location;
+option.value=item;
+option.textContent=item;
 
-option.textContent = location;
-
-group.appendChild(option);
+select.appendChild(option);
 
 });
-
-
-select.appendChild(group);
-
-}
-
-
-function updateCabLocations(){
-
-const destination =
-document.getElementById("cabDestination").value;
-
-const pickup =
-document.getElementById("cabPickup");
-
-const drop =
-document.getElementById("cabDrop");
-
-
-pickup.innerHTML =
-'<option value="">Select Pickup Location</option>';
-
-drop.innerHTML =
-'<option value="">Select Drop / Sightseeing Location</option>';
-
-
-if(!destination){
-
-return;
-
-}
-
-
-const data = cabLocations[destination];
-
-
-addCabGroup(
-pickup,
-"Transport / Jetty",
-data.transport
-);
-
-addCabGroup(
-pickup,
-"Hotels",
-data.hotels
-);
-
-addCabGroup(
-pickup,
-"Sightseeing",
-data.sightseeing
-);
-
-
-addCabGroup(
-drop,
-"Transport / Jetty",
-data.transport
-);
-
-addCabGroup(
-drop,
-"Hotels",
-data.hotels
-);
-
-addCabGroup(
-drop,
-"Sightseeing",
-data.sightseeing
-);
 
 }
 
 
 document
 .getElementById("cabDestination")
-.addEventListener(
-"change",
-updateCabLocations
+.addEventListener("change",function(){
+
+const destination=this.value;
+
+const pickup=
+document.getElementById("cabPickup");
+
+const drop=
+document.getElementById("cabDrop");
+
+
+pickup.innerHTML=
+'<option value="">Select Pickup</option>';
+
+drop.innerHTML=
+'<option value="">Select Drop / Sightseeing</option>';
+
+
+if(!cabLocations[destination]){
+return;
+}
+
+
+const data=
+cabLocations[destination];
+
+
+const pickupLocations=
+[
+...data.transport,
+...data.hotels
+];
+
+
+const dropLocations=
+[
+...data.transport,
+...data.hotels,
+...data.sightseeing
+];
+
+
+addLocationOptions(
+pickup,
+pickupLocations
 );
 
 
-function openCabForm(){
-
-document.getElementById("cabModal").style.display =
-"block";
-
-document.body.style.overflow =
-"hidden";
-
-}
-
-
-function closeCabForm(){
-
-document.getElementById("cabModal").style.display =
-"none";
-
-document.body.style.overflow =
-"auto";
-
-}
-
-
-document.addEventListener("click", function(event){
-
-const modal =
-document.getElementById("cabModal");
-
-if(event.target === modal){
-
-closeCabForm();
-
-}
-
-});
-
-
-document
-.getElementById("cabForm")
-.addEventListener("submit", function(event){
-
-event.preventDefault();
-
-
-const destination =
-document.getElementById("cabDestination").value;
-
-const pickup =
-document.getElementById("cabPickup").value;
-
-const drop =
-document.getElementById("cabDrop").value;
-
-const date =
-document.getElementById("cabDate").value;
-
-const time =
-document.getElementById("cabTime").value;
-
-const passengers =
-document.getElementById("cabPassengers").value;
-
-const cabType =
-document.getElementById("cabType").value;
-
-const name =
-document.getElementById("cabCustomerName").value;
-
-const phone =
-document.getElementById("cabPhone").value;
-
-const email =
-document.getElementById("cabEmail").value;
-
-const requirement =
-document.getElementById("cabRequirement").value;
-
-
-let message = "";
-
-
-message +=
-"Hello Coral Crown Travels,\n\n";
-
-message +=
-"CAB ENQUIRY\n\n";
-
-message +=
-"Destination: " + destination + "\n";
-
-message +=
-"Pickup Location: " + pickup + "\n";
-
-message +=
-"Drop / Sightseeing Location: " +
-drop + "\n";
-
-message +=
-"Travel Date: " + date + "\n";
-
-message +=
-"Pickup Time: " + time + "\n";
-
-message +=
-"Number of Passengers: " +
-passengers + "\n";
-
-message +=
-"Cab Type: " + cabType + "\n\n";
-
-
-message +=
-"CUSTOMER DETAILS\n";
-
-message +=
-"Name: " + name + "\n";
-
-message +=
-"Phone: " + phone + "\n";
-
-
-if(email !== ""){
-
-message +=
-"Email: " + email + "\n";
-
-}
-
-
-if(requirement !== ""){
-
-message +=
-"Special Requirement: " +
-requirement + "\n";
-
-}
-
-
-message +=
-"\nPlease share the available cab and fare.";
-
-
-const whatsappURL =
-"https://wa.me/917695058610?text=" +
-encodeURIComponent(message);
-
-
-window.open(
-whatsappURL,
-"_blank"
+addLocationOptions(
+drop,
+dropLocations
 );
 
 });
 
 </script>
 
+<!-- ================= CAB WHATSAPP JAVASCRIPT ================= -->
 
-<!-- ==================== FOOTER ==================== -->
+<script>
+
+function openCabForm(){
+
+    document.getElementById("cabModal").style.display="block";
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeCabForm(){
+
+    document.getElementById("cabModal").style.display="none";
+
+    document.body.style.overflow="auto";
+
+}
+
+
+/* Close Cab popup */
+
+document.addEventListener("click",function(event){
+
+    const modal=document.getElementById("cabModal");
+
+    if(event.target===modal){
+
+        closeCabForm();
+
+    }
+
+});
+
+
+/* Cab form submit */
+
+document
+.getElementById("cabForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const destination=
+        document.getElementById("cabDestination").value;
+
+    const pickup=
+        document.getElementById("cabPickup").value;
+
+    const drop=
+        document.getElementById("cabDrop").value;
+
+    const date=
+        document.getElementById("cabDate").value;
+
+    const time=
+        document.getElementById("cabTime").value;
+
+    const passengers=
+        document.getElementById("cabPassengers").value;
+
+    const cabType=
+        document.getElementById("cabType").value;
+
+    const name=
+        document.getElementById("cabCustomerName").value;
+
+    const phone=
+        document.getElementById("cabPhone").value;
+
+    const email=
+        document.getElementById("cabEmail").value;
+
+    const requirement=
+        document.getElementById("cabRequirement").value;
+
+
+    let message="";
+
+
+    message+=
+        "Hello Coral Crown Travels,\n\n";
+
+    message+=
+        "CAB ENQUIRY\n\n";
+
+
+    message+=
+        "Customer Name: "+name+"\n";
+
+    message+=
+        "Destination: "+destination+"\n";
+
+    message+=
+        "Pickup Location: "+pickup+"\n";
+
+    message+=
+        "Drop / Sightseeing: "+drop+"\n";
+
+    message+=
+        "Travel Date: "+date+"\n";
+
+    message+=
+        "Pickup Time: "+time+"\n";
+
+    message+=
+        "Passengers: "+passengers+"\n";
+
+    message+=
+        "Cab Type: "+cabType+"\n";
+
+
+    message+=
+        "\nCONTACT DETAILS\n";
+
+    message+=
+        "Phone: "+phone+"\n";
+
+
+    if(email!==""){
+
+        message+=
+            "Email: "+email+"\n";
+
+    }
+
+
+    if(requirement!==""){
+
+        message+=
+            "\nSpecial Requirement:\n";
+
+        message+=
+            requirement+"\n";
+
+    }
+
+
+    message+=
+        "\nPlease share the available cab option and fare.";
+
+
+    const whatsappURL=
+        "https://wa.me/917695058610?text="+
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+});
+
+</script>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
+<div class="footer-content">
+
+<h3>Coral Crown Travels</h3>
+
 <p>
-© 2026 Coral Crown Travels. All Rights Reserved.
+Your trusted travel partner for exploring the Andaman Islands.
 </p>
 
 <p>
@@ -1425,11 +2020,212 @@ Port Blair, Andaman & Nicobar Islands
 </p>
 
 <p>
-7695058610 | coralcrowntravels@gmail.com
+Phone: 7695058610
 </p>
+
+<p>
+Email: coralcrowntravels@gmail.com
+</p>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Coral Crown Travels. All Rights Reserved.
+</p>
+
+</div>
 
 </footer>
 
+
+<!-- ================= FOOTER CSS ================= -->
+
+<style>
+
+footer{
+background:#073b5c;
+color:white;
+text-align:center;
+margin-top:20px;
+}
+
+.footer-content{
+padding:45px 20px 30px;
+}
+
+.footer-content h3{
+font-size:25px;
+margin-bottom:12px;
+}
+
+.footer-content p{
+margin:5px 0;
+color:#d8edf2;
+}
+
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,.2);
+padding:15px;
+font-size:13px;
+color:#c6dce2;
+}
+
+</style>
+
+<!-- ================= FINAL WEBSITE CSS ================= -->
+
+<style>
+
+/* Prevent horizontal scrolling */
+
+html,
+body{
+    overflow-x:hidden;
+}
+
+
+/* Better mobile navigation */
+
+@media(max-width:700px){
+
+header{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:5px;
+}
+
+.logo{
+    width:100%;
+    justify-content:center;
+}
+
+nav{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding-bottom:5px;
+}
+
+nav a{
+    font-size:12px;
+    margin:0 5px;
+}
+
+}
+
+
+/* Mobile hero */
+
+@media(max-width:500px){
+
+.hero{
+    min-height:480px;
+    padding:30px 18px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero h2{
+    font-size:20px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.hero-btn{
+    padding:12px 22px;
+}
+
+}
+
+
+/* Modal animation */
+
+.ferry-box,
+.cab-box{
+    animation:modalOpen .25s ease;
+}
+
+@keyframes modalOpen{
+
+from{
+    opacity:0;
+    transform:translateY(-20px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+
+/* Better buttons */
+
+button,
+.package-btn,
+.hero-btn,
+.contact-btn{
+    transition:.25s;
+}
+
+button:hover,
+.package-btn:hover,
+.hero-btn:hover,
+.contact-btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* Input focus */
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#0b9aaa;
+    box-shadow:0 0 0 2px rgba(11,154,170,.12);
+}
+
+</style>
+
+
+<!-- ================= DATE CONTROL ================= -->
+
+<script>
+
+/* Do not allow past dates */
+
+const today=
+new Date().toISOString().split("T")[0];
+
+
+const ferryDate=
+document.getElementById("ferryDate");
+
+const cabDate=
+document.getElementById("cabDate");
+
+
+if(ferryDate){
+    ferryDate.min=today;
+}
+
+
+if(cabDate){
+    cabDate.min=today;
+}
+
+</script>
+
+
+<!-- ================= FINAL CLOSE ================= -->
 
 </body>
 </html>
