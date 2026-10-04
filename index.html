@@ -630,6 +630,107 @@ footer strong{
         gap:0;
     }
 }
+    /* Cab Enquiry Form */
+
+.cab-modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    padding:20px;
+    overflow-y:auto;
+}
+
+.cab-box{
+    position:relative;
+    max-width:650px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.cab-box h2{
+    margin:0 0 8px;
+    color:#073b5c;
+    font-size:28px;
+}
+
+.cab-subtitle{
+    margin:0 0 25px;
+    color:#666;
+}
+
+.close-cab{
+    position:absolute;
+    right:18px;
+    top:15px;
+    border:none;
+    background:none;
+    font-size:32px;
+    cursor:pointer;
+    color:#555;
+}
+
+.cab-box label{
+    display:block;
+    margin:15px 0 7px;
+    font-weight:600;
+    color:#173f52;
+}
+
+.cab-box input,
+.cab-box select,
+.cab-box textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #d5e1e5;
+    border-radius:10px;
+    font-size:14px;
+    outline:none;
+    box-sizing:border-box;
+    background:#fff;
+    font-family:inherit;
+}
+
+.cab-box textarea{
+    resize:vertical;
+}
+
+.cab-box input:focus,
+.cab-box select:focus,
+.cab-box textarea:focus{
+    border-color:#1596a8;
+}
+
+.cab-submit{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#073b5c;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.cab-submit:hover{
+    opacity:0.9;
+}
+
+@media(max-width:600px){
+
+    .cab-box{
+        padding:22px;
+        margin:20px auto;
+    }
+
+}
+    
 </style>
 </head>
 
