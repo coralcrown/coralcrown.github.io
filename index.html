@@ -1019,6 +1019,7 @@ target="_blank">
     </div>
     </div>
     <script>
+
 function openFerryForm(){
     document.getElementById("ferryModal").style.display = "block";
     document.body.style.overflow = "hidden";
@@ -1029,13 +1030,16 @@ function closeFerryForm(){
     document.body.style.overflow = "auto";
 }
 
-window.onclick = function(event){
+document.addEventListener("click", function(event){
+
     const modal = document.getElementById("ferryModal");
 
     if(event.target === modal){
         closeFerryForm();
     }
-};
+
+});
+
 
 function createPassengerFields(){
 
@@ -1044,7 +1048,7 @@ function createPassengerFields(){
 
     container.innerHTML = "";
 
-    for(let i = 1; i <= count; i++){
+    for(let i = 1; i <= Number(count); i++){
 
         container.innerHTML += `
             <div class="passenger-card">
@@ -1055,30 +1059,32 @@ function createPassengerFields(){
 
                     <div>
                         <label>Name</label>
-                        <input type="text"
-                               id="passengerName${i}"
-                               placeholder="Full Name"
-                               required>
+                        <input
+                            type="text"
+                            id="passengerName${i}"
+                            placeholder="Full Name"
+                            required>
                     </div>
 
                     <div>
                         <label>Gender</label>
                         <select id="passengerGender${i}" required>
                             <option value="">Select</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
                     <div>
                         <label>Age</label>
-                        <input type="number"
-                               id="passengerAge${i}"
-                               placeholder="Age"
-                               min="1"
-                               max="120"
-                               required>
+                        <input
+                            type="number"
+                            id="passengerAge${i}"
+                            placeholder="Age"
+                            min="1"
+                            max="120"
+                            required>
                     </div>
 
                 </div>
@@ -1088,6 +1094,7 @@ function createPassengerFields(){
     }
 }
 
+
 document.getElementById("ferryForm").addEventListener("submit", function(event){
 
     event.preventDefault();
@@ -1096,46 +1103,60 @@ document.getElementById("ferryForm").addEventListener("submit", function(event){
     const from = document.getElementById("ferryFrom").value;
     const to = document.getElementById("ferryTo").value;
     const date = document.getElementById("ferryDate").value;
-    const count = document.getElementById("passengerCount").value;
+    const count = Number(document.getElementById("passengerCount").value);
     const phone = document.getElementById("customerPhone").value;
     const email = document.getElementById("customerEmail").value;
 
-    let message = "Hello Coral Crown Travels,%0A%0A";
-    message += "*Ferry Fare & Availability Enquiry*%0A%0A";
+    let message = "";
 
-    message += "Ferry: " + ferry + "%0A";
-    message += "From: " + from + "%0A";
-    message += "To: " + to + "%0A";
-    message += "Travel Date: " + date + "%0A";
-    message += "Passengers: " + count + "%0A%0A";
+    message += "Hello Coral Crown Travels,\n\n";
 
-    message += "*Passenger Details*%0A";
+    message += "FERRY FARE & AVAILABILITY ENQUIRY\n\n";
+
+    message += "Ferry: " + ferry + "\n";
+    message += "From: " + from + "\n";
+    message += "To: " + to + "\n";
+    message += "Travel Date: " + date + "\n";
+    message += "Number of Passengers: " + count + "\n\n";
+
+    message += "PASSENGER DETAILS\n";
 
     for(let i = 1; i <= count; i++){
 
-        const name = document.getElementById("passengerName" + i).value;
-        const gender = document.getElementById("passengerGender" + i).value;
-        const age = document.getElementById("passengerAge" + i).value;
+        const name =
+            document.getElementById("passengerName" + i).value;
 
-        message += "%0APassenger " + i + "%0A";
-        message += "Name: " + name + "%0A";
-        message += "Gender: " + gender + "%0A";
-        message += "Age: " + age + "%0A";
+        const gender =
+            document.getElementById("passengerGender" + i).value;
+
+        const age =
+            document.getElementById("passengerAge" + i).value;
+
+        message += "\nPassenger " + i + "\n";
+        message += "Name: " + name + "\n";
+        message += "Gender: " + gender + "\n";
+        message += "Age: " + age + "\n";
     }
 
-    message += "%0A*Contact Details*%0A";
-    message += "Phone: " + phone + "%0A";
+    message += "\nCONTACT DETAILS\n";
 
-    if(email){
-        message += "Email: " + email + "%0A";
+    message += "Phone: " + phone + "\n";
+
+    if(email !== ""){
+        message += "Email: " + email + "\n";
     }
+
+    message += "\nPlease check the current ferry fare and availability.";
 
     const whatsappURL =
-        "https://wa.me/917695058610?text=" + message;
+        "https://wa.me/917695058610?text=" +
+        encodeURIComponent(message);
 
     window.open(whatsappURL, "_blank");
 
 });
-        </script>
+
+</script>
+    
 </body>
     </html>
